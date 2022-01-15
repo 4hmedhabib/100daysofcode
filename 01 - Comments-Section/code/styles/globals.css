@@ -5,13 +5,17 @@
 @tailwind utilities;
 
 #container {
-  width: 80vw;
-  max-width: 90%;
   display: flex;
   justify-content: center;
 }
 
+#comment {
+  width: 50%;
+}
+
 body {
-  @apply bg-veryLightGray  flex flex-row justify-center  mt-16;
+  @apply bg-veryLightGray mt-16;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
