@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  @apply bg-veryLightGray mt-16;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 1124px) {
+  #comment {
+    width: 50%;
+  }
+
+  #reply {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1124px) {
+  #comment {
+    width: 80%;
+  }
+
+  #reply {
+    width: 80%;
+  }
+}
