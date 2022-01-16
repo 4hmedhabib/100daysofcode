@@ -32,7 +32,7 @@ const Content = ({ user, content, createdAt, replyingTo, currentUser }) => {
             </span>
           </div>
 
-          <div className="flex items-center absolute bottom-6 right-6">
+          <div className="flex items-center ">
             <Image
               src="/icons/icon-reply.svg"
               alt="icons-plus"

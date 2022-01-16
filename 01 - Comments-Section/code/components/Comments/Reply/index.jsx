@@ -1,7 +1,8 @@
-import { Content, Counter, ReplyCard } from "../../../components";
+import { Counter, ReplyCard } from "../../../components";
+import Content from "./Content";
 import { Fragment } from "react";
 
-const Reply = ({ replies }) => {
+const Reply = ({ replies, currentUser }) => {
   return (
     <Fragment>
       <div id="reply" className="flex flex-col items-center gap-3 pl-14">
@@ -17,6 +18,7 @@ const Reply = ({ replies }) => {
                     replyingTo={reply.replyingTo}
                     createdAt={reply.createdAt}
                     user={reply.user}
+                    currentUser={currentUser}
                   />
                 </ReplyCard>
               );

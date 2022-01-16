@@ -8,20 +8,29 @@ const Comments = ({ data, currentUser }) => {
     comments.push(comment);
   }
 
+  // console.log(comments[0].user);
+
   return (
     <Fragment>
-      {comments.map((comment) => {
-        return (
-          <Fragment key={comment.id}>
-            <Card>
-              <Comment />
-            </Card>
-            {comment.replies.length > 0 && (
-              <Reply replies={comment.replies} currentUser={currentUser} />
-            )}
-          </Fragment>
-        );
-      })}
+      {comments &&
+        comments.map((comment) => {
+          return (
+            <Fragment key={comment.id}>
+              <Card>
+                <Counter score={comment.score} />
+                <Comment
+                  user={comment.user}
+                  content={comment.content}
+                  createdAt={comment.createdAt}
+                  score={comment.score}
+                />
+              </Card>
+              {comment.replies.length > 0 && (
+                <Reply replies={comment.replies} currentUser={currentUser} />
+              )}
+            </Fragment>
+          );
+        })}
     </Fragment>
   );
 };
