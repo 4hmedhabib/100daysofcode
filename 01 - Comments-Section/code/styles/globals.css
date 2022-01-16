@@ -13,6 +13,10 @@
   width: 50%;
 }
 
+#reply {
+  width: 50%;
+}
+
 body {
   @apply bg-veryLightGray mt-16;
   box-sizing: border-box;
