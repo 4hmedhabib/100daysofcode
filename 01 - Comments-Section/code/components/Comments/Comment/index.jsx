@@ -1,9 +1,7 @@
 import { Fragment } from "react";
 import Image from "next/image";
 
-const Content = ({ user, content, createdAt }) => {
-  console.log(`${user.image.png}`);
-
+const Content = ({ user, content, createdAt, replyingTo }) => {
   return (
     <Fragment>
       {/* Card Body */}
@@ -13,12 +11,17 @@ const Content = ({ user, content, createdAt }) => {
           className="flex justify-between items-center mb-2"
         >
           <div className="flex items-center">
-            <Image src={user.image.png} alt="" width="32" height="32" />
+            <Image
+              src={user.image.png}
+              alt={user.username}
+              width="32"
+              height="32"
+            />
             <h6 className="ml-4 text-darkBlue mr-3 font-[600] font-rubik">
               {user.username}
             </h6>
             <span className="text-grayishBlue text-md font-[400]">
-              1 month ago
+              {createdAt}
             </span>
           </div>
           <div className="flex items-center">
@@ -33,9 +36,12 @@ const Content = ({ user, content, createdAt }) => {
         </div>
         <div>
           <p className=" text-grayishBlue leading-6 tracking-normal">
-            Impressive! Though it seems the drag feature could be improved. But
-            overall it looks incredible. You've nailed the design and the
-            responsiveness at various breakpoints works really well.
+            {replyingTo && (
+              <span className="font-bold font-rubik text-moderateBlue">
+                @{replyingTo}
+              </span>
+            )}{" "}
+            {content}
           </p>
         </div>
       </div>

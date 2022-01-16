@@ -6,7 +6,7 @@ const Counter = ({ score }) => {
     <Fragment>
       {/* Counter Card */}
       <div className="card-counter bg-veryLightGray px-2 w-10 rounded-lg text-center py-2">
-        <div className="mb-1">
+        <div className="mb-1 cursor-pointer">
           <Image
             src="/icons/icon-plus.svg"
             alt="icons-plus"
@@ -15,7 +15,7 @@ const Counter = ({ score }) => {
           />
         </div>
         <h6 className="font-[600]  text-moderateBlue mb-1">{score}</h6>
-        <div>
+        <div className=" cursor-pointer">
           <Image
             src="/icons/icon-minus.svg"
             alt="icons-minus"
