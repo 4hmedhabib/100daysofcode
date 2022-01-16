@@ -5,8 +5,8 @@ const Comments = () => {
   const data = {
     currentUser: {
       image: {
-        png: "./images/avatars/image-juliusomo.png",
-        webp: "./images/avatars/image-juliusomo.webp",
+        png: "/avatars/image-juliusomo.png",
+        webp: "/avatars/image-juliusomo.webp",
       },
       username: "juliusomo",
     },
@@ -19,8 +19,8 @@ const Comments = () => {
         score: 12,
         user: {
           image: {
-            png: "./images/avatars/image-amyrobson.png",
-            webp: "./images/avatars/image-amyrobson.webp",
+            png: "/avatars/image-amyrobson.png",
+            webp: "/avatars/image-amyrobson.webp",
           },
           username: "amyrobson",
         },
@@ -34,8 +34,8 @@ const Comments = () => {
         score: 5,
         user: {
           image: {
-            png: "./images/avatars/image-maxblagun.png",
-            webp: "./images/avatars/image-maxblagun.webp",
+            png: "/avatars/image-maxblagun.png",
+            webp: "/avatars/image-maxblagun.webp",
           },
           username: "maxblagun",
         },
@@ -49,8 +49,8 @@ const Comments = () => {
             replyingTo: "maxblagun",
             user: {
               image: {
-                png: "./images/avatars/image-ramsesmiron.png",
-                webp: "./images/avatars/image-ramsesmiron.webp",
+                png: "/avatars/image-ramsesmiron.png",
+                webp: "/avatars/image-ramsesmiron.webp",
               },
               username: "ramsesmiron",
             },
@@ -64,8 +64,8 @@ const Comments = () => {
             replyingTo: "ramsesmiron",
             user: {
               image: {
-                png: "./images/avatars/image-juliusomo.png",
-                webp: "./images/avatars/image-juliusomo.webp",
+                png: "/avatars/image-juliusomo.png",
+                webp: "/avatars/image-juliusomo.webp",
               },
               username: "juliusomo",
             },
@@ -75,15 +75,31 @@ const Comments = () => {
     ],
   };
 
-  console.log(data);
+  const comments = [];
+
+  for (let comment of data.comments) {
+    comments.push(comment);
+  }
+
+  console.log(comments);
 
   return (
     <Fragment>
-      <Card>
-        <Counter />
-        <Content />
-      </Card>
-      <Reply />
+      {comments.map((comment) => {
+        return (
+          <Fragment key={comment.id}>
+            <Card>
+              <Counter score={comment.score} />
+              <Content
+                user={comment.user}
+                createdAt={comment.createdAt}
+                content={comment.content}
+              />
+            </Card>
+            {comment.replies.length > 0 && <Reply replies={comment.replies} />}
+          </Fragment>
+        );
+      })}
     </Fragment>
   );
 };

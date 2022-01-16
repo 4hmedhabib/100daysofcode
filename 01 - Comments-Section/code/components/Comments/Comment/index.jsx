@@ -1,7 +1,9 @@
 import { Fragment } from "react";
 import Image from "next/image";
 
-const Content = () => {
+const Content = ({ user, content, createdAt }) => {
+  console.log(`${user.image.png}`);
+
   return (
     <Fragment>
       {/* Card Body */}
@@ -11,14 +13,9 @@ const Content = () => {
           className="flex justify-between items-center mb-2"
         >
           <div className="flex items-center">
-            <Image
-              src="/avators/image-amyrobson.png"
-              alt=""
-              width="32"
-              height="32"
-            />
+            <Image src={user.image.png} alt="" width="32" height="32" />
             <h6 className="ml-4 text-darkBlue mr-3 font-[600] font-rubik">
-              amyrobson
+              {user.username}
             </h6>
             <span className="text-grayishBlue text-md font-[400]">
               1 month ago

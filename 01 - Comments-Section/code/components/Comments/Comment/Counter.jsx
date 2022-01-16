@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Image from "next/image";
 
-const Counter = () => {
+const Counter = ({ score }) => {
   return (
     <Fragment>
       {/* Counter Card */}
@@ -14,7 +14,7 @@ const Counter = () => {
             height="12"
           />
         </div>
-        <h6 className="font-[600]  text-moderateBlue mb-1">12</h6>
+        <h6 className="font-[600]  text-moderateBlue mb-1">{score}</h6>
         <div>
           <Image
             src="/icons/icon-minus.svg"
